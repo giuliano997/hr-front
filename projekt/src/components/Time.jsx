@@ -6,8 +6,8 @@ const Time = () => {
 
   return (
     <div>
-      <h2>Time</h2>
-      <button onClick={() => navigate("/home")}>Back to Home</button>
+      <h2>Arbeitszeit</h2>
+      <button onClick={() => navigate("/home")}>Zurück zur Startseite</button>
     </div>
   );
 };

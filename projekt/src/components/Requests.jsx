@@ -6,8 +6,8 @@ const Requests = () => {
 
   return (
     <div>
-      <h2>Requests</h2>
-      <button onClick={() => navigate("/home")}>Back to Home</button>
+      <h2>Anträge</h2>
+      <button onClick={() => navigate("/home")}>Zurück zur Startseite</button>
     </div>
   );
 };

@@ -6,10 +6,10 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Home</h2>
-      <button onClick={() => navigate("/time")}>Time</button>
-      <button onClick={() => navigate("/leave")}>Leave</button>
-      <button onClick={() => navigate("/requests")}>Requests</button>
+      <h2>Startseite</h2>
+      <button onClick={() => navigate("/time")}>Arbeitszeit</button>
+      <button onClick={() => navigate("/leave")}>Urlaub</button>
+      <button onClick={() => navigate("/requests")}>Anträge</button>
     </div>
   );
 };

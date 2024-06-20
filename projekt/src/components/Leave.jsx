@@ -6,8 +6,8 @@ const Leave = () => {
 
   return (
     <div>
-      <h2>Leave</h2>
-      <button onClick={() => navigate("/home")}>Back to Home</button>
+      <h2>Urlaubstage</h2>
+      <button onClick={() => navigate("/home")}>Zurück zur Startseite</button>
     </div>
   );
 };
