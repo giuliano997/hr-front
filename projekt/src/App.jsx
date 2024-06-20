@@ -1,50 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LogIn from "./components/LogIn";
 import Home from "./components/Home";
-import TimeEntry from "./components/TimeEntry";
-import VacationRequest from "./components/VacationRequest";
-import DepartmentManager from "./components/DepartmentManager";
-import NavBar from "./components/NavBar";
+import Time from "./components/Time";
+import Leave from "./components/Leave";
+import Requests from "./components/Requests";
 
 function App() {
   return (
     <Router>
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <SignedIn>
-            <Home />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </Route>
-        <Route path="/time-entry">
-          <SignedIn>
-            <TimeEntry />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </Route>
-        <Route path="/vacation-request">
-          <SignedIn>
-            <VacationRequest />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </Route>
-        <Route path="/department-manager">
-          <SignedIn>
-            <DepartmentManager />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </Route>
-      </Switch>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<LogIn />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/time" element={<Time />} />
+          <Route path="/leave" element={<Leave />} />
+          <Route path="/requests" element={<Requests />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

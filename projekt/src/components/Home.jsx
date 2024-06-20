@@ -1,37 +1,17 @@
-import React, { useContext } from "react";
-import LoginForm from "./LoginForm";
-import { AuthContext } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function Home() {
-  const { user } = useContext(AuthContext);
+const Home = () => {
+  const navigate = useNavigate();
 
   return (
     <div>
-      {!user ? (
-        <LoginForm />
-      ) : (
-        <div>
-          <h1>Welcome, {user.name}</h1>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/time-entry">Arbeitszeit eintragen</Link>
-              </li>
-              <li>
-                <Link to="/vacation-request">Urlaub beantragen</Link>
-              </li>
-              {user.role === "manager" && (
-                <li>
-                  <Link to="/department-manager">Urlaubsanträge verwalten</Link>
-                </li>
-              )}
-            </ul>
-          </nav>
-        </div>
-      )}
+      <h2>Home</h2>
+      <button onClick={() => navigate("/time")}>Time</button>
+      <button onClick={() => navigate("/leave")}>Leave</button>
+      <button onClick={() => navigate("/requests")}>Requests</button>
     </div>
   );
-}
+};
 
 export default Home;
