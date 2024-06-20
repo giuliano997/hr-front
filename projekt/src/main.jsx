@@ -1,15 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { ClerkProvider } from "@clerk/clerk-react";
+import ReactDOM from "react-dom/client";
+import { HashRouter as Router } from "react-router-dom";
 import App from "./App";
+import "./index.css";
 
-const clerkFrontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
-    <ClerkProvider frontendApi={clerkFrontendApi}>
+    <Router>
       <App />
-    </ClerkProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+    </Router>
+  </React.StrictMode>
 );
