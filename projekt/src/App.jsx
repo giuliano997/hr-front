@@ -1,10 +1,9 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
-import LogIn from "./components/LogIn";
-import Home from "./components/Home";
-import Time from "./components/Time";
-import Leave from "./components/Leave";
-import Requests from "./components/Requests";
+import LogIn from "./pages/LogIn";
+import Home from "./pages/Home";
+import Time from "./pages/Time";
+import Leave from "./pages/Leave";
+import Requests from "./pages/Requests";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import { ButtonLink } from "../components/ButtonLink";
 
 const Requests = () => {
   const navigate = useNavigate();
@@ -7,7 +7,7 @@ const Requests = () => {
   return (
     <div>
       <h2>Anträge</h2>
-      <button onClick={() => navigate("/home")}>Zurück zur Startseite</button>
+      <ButtonLink to="/home">Zurück zur Startseite</ButtonLink>
     </div>
   );
 };
