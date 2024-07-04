@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "./global.css";
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -8,9 +9,11 @@ const LogIn = () => {
   };
 
   return (
-    <div>
-      <h2>Log In</h2>
-      <button onClick={handleLogIn}>Log In</button>
+    <div className="container">
+      <h2 className="heading">Log In</h2>
+      <button onClick={handleLogIn} className="button">
+        Log In
+      </button>
     </div>
   );
 };

@@ -1,14 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import "./global.css";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h2>Startseite</h2>
-      <button onClick={() => navigate("/time")}>Arbeitszeit</button>
-      <button onClick={() => navigate("/leave")}>Urlaub</button>
-      <button onClick={() => navigate("/requests")}>Anträge</button>
+    <div className="container">
+      <h2 className="heading">Startseite</h2>
+      <button onClick={() => navigate("/time")} className="button">
+        Arbeitszeit
+      </button>
+      <button onClick={() => navigate("/leave")} className="button">
+        Urlaub
+      </button>
+      <button onClick={() => navigate("/requests")} className="button">
+        Anträge
+      </button>
     </div>
   );
 };

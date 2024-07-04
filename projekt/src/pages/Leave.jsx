@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ButtonLink } from "../components/ButtonLink";
 import React, { useState } from "react";
+import "./global.css";
 
 const Leave = () => {
   const navigate = useNavigate();
@@ -13,17 +14,17 @@ const Leave = () => {
     const leaveRequestData = { userId, startDate, endDate };
     try {
       await createLeaveRequest(leaveRequestData);
-      alert("Leave request submitted successfully!");
+      alert("Der Urlaubsantrag wurde erfolgreich eingereicht");
     } catch (error) {
-      alert("Failed to submit leave request");
+      alert("Der Urlaubsantrag konnte nicht eingereicht werden");
     }
   };
 
   return (
-    <div>
-      <h2>Urlaubstage</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="container">
+      <h2 className="heading">Urlaubstage</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
           <label>User ID:</label>
           <input
             type="text"
@@ -32,8 +33,8 @@ const Leave = () => {
             required
           />
         </div>
-        <div>
-          <label>Start Date:</label>
+        <div className="form-group">
+          <label>Anfangsdatum:</label>
           <input
             type="date"
             value={startDate}
@@ -41,8 +42,8 @@ const Leave = () => {
             required
           />
         </div>
-        <div>
-          <label>End Date:</label>
+        <div className="form-group">
+          <label>Enddatum:</label>
           <input
             type="date"
             value={endDate}
@@ -50,9 +51,13 @@ const Leave = () => {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="button">
+          Anfrage senden
+        </button>
       </form>
-      <ButtonLink to="/home">Zurück zur Startseite</ButtonLink>
+      <ButtonLink to="/home" className="button-link">
+        Zurück zur Startseite
+      </ButtonLink>
     </div>
   );
 };

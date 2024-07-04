@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ButtonLink } from "../components/ButtonLink";
 import React, { useState } from "react";
+import "./global.css";
 
 const Time = () => {
   const navigate = useNavigate();
@@ -63,10 +64,10 @@ const Time = () => {
   };
 
   return (
-    <div>
-      <h2>Arbeitszeit</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="container">
+      <h2 className="heading">Arbeitszeit</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
           <label>User ID:</label>
           <input
             type="text"
@@ -75,7 +76,7 @@ const Time = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Arbeitsdatum:</label>
           <input
             type="date"
@@ -84,7 +85,7 @@ const Time = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Gearbeitete Stunden:</label>
           <input
             type="number"
@@ -94,7 +95,7 @@ const Time = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Pausenbeginn</label>
           <input
             type="time"
@@ -102,7 +103,7 @@ const Time = () => {
             onChange={(e) => setBreakStart(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Pausenende:</label>
           <input
             type="time"
@@ -110,9 +111,13 @@ const Time = () => {
             onChange={(e) => setBreakEnd(e.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="button">
+          Senden
+        </button>
       </form>
-      <ButtonLink to="/home">Zurück zur Startseite</ButtonLink>
+      <ButtonLink to="/home" className="button-link">
+        Zurück zur Startseite
+      </ButtonLink>
     </div>
   );
 };
