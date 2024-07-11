@@ -1,15 +1,19 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonLink } from "../components/ButtonLink";
-import React, { useState } from "react";
+import { createWorkHour } from "../api";
 import "./global.css";
+import { useSessionStorage } from "usehooks-ts";
 
 const Time = () => {
   const navigate = useNavigate();
-  const [userId, setUserId] = useState("");
   const [workDate, setWorkDate] = useState("");
   const [hoursWorked, setHoursWorked] = useState("");
   const [breakStart, setBreakStart] = useState("");
   const [breakEnd, setBreakEnd] = useState("");
+  const [userId] = useSessionStorage("userId", undefined, {
+    deserializer: (value) => parseInt(value, 10),
+  });
 
   const validateBreaks = () => {
     const hoursWorkedNum = parseFloat(hoursWorked);
@@ -68,15 +72,6 @@ const Time = () => {
       <h2 className="heading">Arbeitszeit</h2>
       <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
-          <label>User ID:</label>
-          <input
-            type="text"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
           <label>Arbeitsdatum:</label>
           <input
             type="date"
@@ -96,7 +91,7 @@ const Time = () => {
           />
         </div>
         <div className="form-group">
-          <label>Pausenbeginn</label>
+          <label>Pausenbeginn:</label>
           <input
             type="time"
             value={breakStart}
